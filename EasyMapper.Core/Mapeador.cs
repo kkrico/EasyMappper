@@ -1,13 +1,15 @@
-namespace Mapeador
-{
-    /// <summary>
-    /// Classe que mapeia um tipo para outro, desde que seja do mesmo tipo e com o mesmo nome
-    /// Atenção: Não mapeia IEnumerable
-    /// </summary>
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
-   public static TResultado MapearPara<TOrigem, TResultado>(TOrigem origem)
-            where TResultado : class
-            where TOrigem : class
+namespace EasyMapper.Core
+{
+    public class Mapeador
+    {
+        public static TResultado MapearPara<TOrigem, TResultado>(TOrigem origem)
+           where TResultado : class
+           where TOrigem : class
         {
             if (origem == null) return null;
 
@@ -97,9 +99,10 @@ namespace Mapeador
 
                 resultado.Add(tmp);
 
-                
+
             }
 
             return resultado;
         }
+    }
 }
